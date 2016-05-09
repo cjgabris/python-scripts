@@ -2,15 +2,18 @@ import arcpy
 import os
 
 arcpy.env.workspace = r"P:\2371 WDCEP\3_Data\forGoogleEarth\2008"
-outDir = r"P:\2371 WDCEP\3_Data\forGoogleEarth\2008\kmz"
+outDir = r"P:\2371 WDCEP\3_Data\forGoogleEarth\2008\KMZ"
 arcpy.CheckOutExtension("3D")
 
-def layer_to_kmz():
+def tif_to_layer():
 	for tif in arcpy.ListFiles("*.tif"):
 		outlyr = os.path.splitext(tif)[0] + '.lyr'
-		print (outlyr)
+		# print (outlyr)
+		outlyrpath = os.path.join(outDir, outlyr)
+		# print (outlyrpath)
+		arcpy.SaveToLayerFile_management(tif, outlyrpath, "ABSOLUTE")
 
-def tif_to_layer():
+def layer_to_kmz():
 	for tif in arcpy.ListFiles("*.tif"):
 		# print (tif)
 		outkmz = os.path.splitext(tif)[0] + '.kmz'

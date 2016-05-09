@@ -231,7 +231,7 @@ def map_to_kml():
 	mxd = arcpy.mapping.MapDocument(WebMap_MXD)
 	df = arcpy.mapping.ListDataFrames(mxd)[0]
 	arcpy.MapToKML_conversion(WebMap_MXD, "Layers", "AGOLmap_to_kml2.kmz","0","NO_COMPOSITE","VECTOR_TO_IMAGE","DEFAULT","1024","96","CLAMPED_TO_GROUND")
-	#arcpy.MapToKML_conversion(mxd, df, "WDCEP.kmz", "1", '', '','','','','')
+	# arcpy.MapToKML_conversion(mxd, df, "WDCEP.kmz", "1", '', '','','','','')
 
 	arcpy.CheckInExtension("3D")
 	print 'done'
@@ -239,8 +239,8 @@ def map_to_kml():
 
 
 def main():
-	# download_and_extract_zips()
-	# add_layers_to_mxd()
+	download_and_extract_zips()
+	add_layers_to_mxd()
 	map_to_kml()
 
 if __name__ == '__main__':
